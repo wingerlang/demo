@@ -1,0 +1,115 @@
+<!doctype>
+<html>
+	<head>
+		<title>javaScript Shenanigan</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="http://wingerlang.se/Jeneral2.css">
+		<style type="text/css">
+			.meta {
+				margin: 5px 5px 20px 5px;
+				padding-bottom: 15px;
+				border-bottom: 2px solid silver;
+			}
+			fieldset {
+				margin-bottom: 15px;
+			}
+			label {cursor: pointer}
+			label:hover {
+				background-color: #FAFAFA;
+			}
+			legend {font-weight: bold}
+			.backways {
+				-moz-transform: rotate(180deg);
+				transform: rotate(180deg);
+				-webkit-transform:rotate(180deg);
+				display: inline-block;
+			}
+			.box {border: 1px solid black;}
+			.floatleft {float:left;}
+			.dynamic {height: 180px;}
+		</style>
+	</head>
+	<body>
+		<header><h1>javaScript Shenanigans</h1></header>
+		<div id="wrap">
+			<fieldset class="meta">
+				<legend>Meta</legend>
+				<input type="checkbox" id="run">
+					<label for="run">Interval status: <span id="run_status"></span></label> 
+				<input type="range" id="run_speed" value="1000" min="0" max="1000" step="20"> 
+					<label for="run_speed" id="display_speed"></label> ms
+					<label for="intervalcounter">Runs: </label><span id="intervalcounter">0</span>
+					<span id="runtime" class="box"></span>
+			</fieldset>
+
+			<label for="checkmate">Checkmate!</label> <input type="checkbox" id="checkmate" >
+			<fieldset id="blink">
+				<legend>Blinking images</legend>
+				<img src="http://wingerlang.se/img/profile_johannes_s.jpg" alt="" width="100">
+				<img src="http://farm9.staticflickr.com/8213/8319493752_d102bde31b_c.jpg" alt="" width="100" class="invisible">
+			</fieldset>
+
+			<fieldset id="worm">
+				<legend>Image Worm</legend>
+				<img src="http://wingerlang.se/img/profile_johannes_s.jpg" alt="" height="100">
+				<img src="http://farm9.staticflickr.com/8213/8319493752_d102bde31b_c.jpg" alt="" height="100">
+				<img src="http://wingerlang.se/img/profile_johannes_s.jpg" alt="" height="100">
+				<img src="http://farm9.staticflickr.com/8049/8371162600_71510ec0c7_m.jpg" alt="" height="100">
+				<img src="http://farm9.staticflickr.com/8213/8319493752_d102bde31b_c.jpg" alt="" height="100">
+				<img src="http://farm9.staticflickr.com/8049/8371162600_71510ec0c7_m.jpg" alt="" height="100">
+			</fieldset>
+
+
+			<fieldset>
+				<legend>Checkboxes</legend>
+				<input type="checkbox" id="checkAll"> 		<label for="checkAll">Check All</label>
+				<input type="checkbox" id="deCheckAll"> 	<label for="deCheckAll">Decheck All</label>
+				<input type="checkbox" id="checkToggle"> 	<label for="checkToggle">Check Toggle</label>
+				<input type="checkbox" id="checkInverse"> 	<label for="checkInverse">Check Inverse</label>
+				<hr>
+				<div id="checkboxes">
+					<input type="checkbox" value"ROFL" id="laugh1"> <label for="laugh1">ROFL</label>
+					<input type="checkbox" value"LMAO" id="laugh2"> <label for="laugh2">LMAO</label>
+					<input type="checkbox" value"LOL"  id="laugh3"> <label for="laugh3">LOL</label>
+					<input type="checkbox" value"ROTFL"  id="laugh4"> <label for="laugh4">ROTFL</label>
+					<input type="checkbox" value"LMFAO"  id="laugh5"> <label for="laugh5">LMFAO</label>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Traveling Arrow</legend>
+				<span id="arrow">&rarr;</span>
+			</fieldset>
+
+			<fieldset>
+				<legend>DOM Manipulations</legend>
+				<div id="dynamic" class="dynamic">
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Ajax Stuff</legend>
+					<input type="submit" value="Number of Ajax requests:" id="submit">
+					<input type="text" id="ajax_count" value="0" disabled>
+				<div id="status"></div>
+			</fieldset>	
+
+			<fieldset>
+				<legend>Style Box:nth-child(<span class="nthvalue"></span>)</legend>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<div class="minibox"></div><div class="minibox"></div><div class="minibox"></div>
+					<br class="clear">
+					<input type="range" min="0" max="10" id="nth" value="0"><label for="nth">:nth-child(<span class="nthvalue"></span>) </label>
+				</fieldset>
+		</div>
+		<footer>
+			This &rarr; is &rarr; madness.
+		</footer>
+	<script src="script.js"></script>
+	</body>
+</html>

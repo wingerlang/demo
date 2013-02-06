@@ -1,0 +1,42 @@
+/* master.css for SNIPPES! :D */
+
+body {background-color: #DDD;font-family: 'Arbutus', cursive;}
+header,#wrap,footer {
+	width: 700px;
+	background-color: #FFF;
+	border: 1px solid silver;
+	border-radius: 10px;
+	margin: 10px auto;
+	padding: 15px;
+}
+.thumbnail {
+	width: 50px;
+	margin: 10px;
+	transition: 0.1s; -webkit-transition: 0.1s;
+}
+.hidden {opacity: 0;}
+.visible{opacity: 1;}
+
+
+#clock {
+	font-size: 5em;
+}
+.clock_skin {
+	border-radius: 30%;
+	width:50%;
+	min-width:300px;
+	display:block;
+	margin: 25px auto;
+	box-shadow: 0px 0px 50px #222;
+	text-align: center;
+}
+.clock_skin span { }
+.clock_skin legend {
+	margin: auto;
+	background-color: #EFEFEF;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.orange {color: orange}
+.critical {color: darkred; text-decoration: underline; font-family: }

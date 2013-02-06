@@ -1,0 +1,30 @@
+<!doctype>
+<html>
+	<head>
+		<title>Geolocation - Where the hell am I?</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header><h1>Simple geolocation test</h1></header>
+		<div id="wrap">
+			<a href="#" id="get_location">geo locate Me</a>
+			<div id="map">
+				<iframe id="gmap" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.se/?ie=UTF8&amp;t=m&amp;ll=56.18875,15.625305&amp;spn=0.066866,0.145912&amp;z=12&amp;output=embed"></iframe>
+			</div>
+			
+
+		</div>
+		<footer>
+			This &rarr; is &rarr; madness.
+		</footer>
+	<script src="script.js"></script>
+	<script>
+		var c = function(pos) {
+			document.getElementById('gmap').setAttribute('src','https://maps.google.com/?q='+pos.coords.latitude+','+pos.coords.longitude+'&z=60&output=embed');
+		}
+		document.getElementById('get_location').onclick = function (){
+			navigator.geolocation.getCurrentPosition(c);
+		}
+	</script>
+	</body>
+</html>
