@@ -2,7 +2,7 @@ var U = {
 	info: {
 		shortName : "U",
 		longName  : "Utiliies",
-		version: (1).toFixed(2),
+		version: (0.1).toFixed(2),
 		author: 'Johannes Winger-Lang'
 	},
 

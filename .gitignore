@@ -2,6 +2,7 @@
 ## Eclipse
 #################
 
+qunit/
 *.pydevproject
 .project
 .metadata
