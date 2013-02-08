@@ -1,14 +1,27 @@
 
 QUnit.test("Test Utilities meta info", function(assert) {
-	/*jshint expr:true */
-	assert.equal(U.info.shortName,"U");
-	assert.equal(U.info.longName,"Utiliies");
-	assert.equal(U.info.version,0.1);
-	assert.equal(U.info.author,"Johannes Winger-Lang");
+	equal(U.info.shortName,"U");
+	equal(U.info.longName,"Utiliies");
+	equal(U.info.version,0.1);
+	equal(U.info.author,"Johannes Winger-Lang");
 });
 
-
-QUnit.test("Test Utilities meta info again", function(assert) {
-	/*jshint expr:true */
-	ok( 1 == '1', "Passed!");
+QUnit.test("Test format time", function(assert) {
+	equal(U.formatTime(100), '00:01:40');
+	equal(U.formatTime(60), '00:01:00');
+	equal(U.formatTime(7388), '02:03:08');
 });
+
+QUnit.test("Access document", function(){
+	equal(U.$('body'), document.getElementById('body'));
+	equal(U.$('head'), document.getElementById('head'));
+});
+
+QUnit.test("Prepend zero", function(){
+	equal(U.prependZero('0'), '00');
+	equal(U.prependZero('3'), '03');
+	equal(U.prependZero('8'), '08');
+	equal(U.prependZero('14'), '14');
+	equal(U.prependZero('04'), '04');
+});
+

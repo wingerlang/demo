@@ -25,6 +25,10 @@ toString : function() {
 },
 
 prependZero : function(c) {
+	c = c.replace(/0+/, '');
+	console.log("c " + c);
+	
+
 	return (c < 10) ? ('0' + c) : c;
 },
 
