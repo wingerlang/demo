@@ -1,12 +1,13 @@
 
 QUnit.test("Test Utilities meta info", function(assert) {
-	equal(U.info.shortName,"U");
-	equal(U.info.longName,"Utiliies");
-	equal(U.info.version,0.1);
-	equal(U.info.author,"Johannes Winger-Lang");
+	equal(U.info.shortName, "U");
+	equal(U.info.longName, "Utiliies");
+	equal(U.info.version, 0.1);
+	equal(U.info.author, "Johannes Winger-Lang");
 });
 
 QUnit.test("Test format time", function(assert) {
+	console.log(U)
 	equal(U.formatTime(100), '00:01:40');
 	equal(U.formatTime(60), '00:01:00');
 	equal(U.formatTime(7388), '02:03:08');
@@ -24,4 +25,3 @@ QUnit.test("Prepend zero", function(){
 	equal(U.prependZero('14'), '14');
 	equal(U.prependZero('04'), '04');
 });
-

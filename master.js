@@ -24,12 +24,12 @@ toString : function() {
 	return this.info.shortName + ' (' + this.info.longName + ') v' + this.info.version + ' by ' + this.info.author + ' initiated.';
 },
 
-prependZero : function(c) {
-	c = c.replace(/0+/, '');
-	console.log("c " + c);
-	
+parseFloat : function(n){
+	return parseFloat(n,10);
+},
 
-	return (c < 10) ? ('0' + c) : c;
+prependZero : function(c) {
+	return (c < 10) ? ('0' + U.parseFloat(c)) : U.parseFloat(c);
 },
 
 formatTime : function(t){
