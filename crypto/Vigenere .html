@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Vigenère Cipher
+	<title>Vigenere Cipher
 	</title>
 </head>
 <style>
@@ -11,30 +11,29 @@
 .wide {
 	width: 100%;
 }
-.used {
-	color: green;
-}
 
 </style>
 <body>
 
-	<input type="text" placeholder="Key" id="key">
 	<input type="text" placeholder="Plaintext" id="plaintext">
+	<input type="text" placeholder="Key" id="keytext">
 	<input type="text" placeholder="Cipher text" id="ciphertext" class="wide">
 
-	<h2><a href="http://en.wikipedia.org/wiki/Tabula_recta">Tabula recta:</a></h2>
+	<h3><a href="http://en.wikipedia.org/wiki/Tabula_recta">Tabula recta:</a></h3>
 	<table id="alphabetTable"></table>
 
 
 	<script>
 	document.ready = (function(){
 		var alphabetTable = document.getElementById('alphabetTable');
+		var ciphertext = document.getElementById('ciphertext');
+		var plaintext = document.getElementById('plaintext');
+		var keytext = document.getElementById('keytext');
+		var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 		
 		function vigenereAlphabet() {
-			console.log("Inefficient way of creating a table");
-			
-			var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWZYZ'.split('');
 			var td, tr, letter;
+
 			for(var row = 0; row < alphabet.length; row++) {
 				tr = document.createElement('tr');
 
@@ -52,6 +51,35 @@
 			return td;
 		}
 		vigenereAlphabet();
+
+		function vigenereEncryption(plaintext, keytext) {
+			console.log(keytext);
+			
+			var ciphertext = "";
+			
+			for (var i = 0; i < plaintext.length; i++) {
+				var currentKey = keytext[i % keytext.length];
+				var currentKeyPos = alphabet.indexOf(currentKey);
+				var alphabetPos =  alphabet.indexOf(plaintext[i]);
+				if(alphabetPos >= 0 && currentKeyPos >= 0) {
+					ciphertext += alphabet[ (currentKeyPos + alphabetPos) % alphabet.length];
+					
+				}
+
+			}
+			return ciphertext;
+		}
+
+		function encryptUpdate(){			
+			ciphertext.value = vigenereEncryption( onlyAlphaChars(plaintext.value), onlyAlphaChars(keytext.value) );
+		}
+
+		function onlyAlphaChars(s) {
+			return s.replace(/[^a-zA-Z]/gi, '').toUpperCase();
+		}
+
+		plaintext.oninput = encryptUpdate;
+		keytext.oninput = encryptUpdate;
 	})();
 	</script>
 </body>
