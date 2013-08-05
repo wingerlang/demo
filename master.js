@@ -24,6 +24,7 @@ toString : function() {
 	return this.info.shortName + ' (' + this.info.longName + ') v' + this.info.version + ' by ' + this.info.author + ' initiated.';
 },
 
+<<<<<<< HEAD
 decimal : function(n) {
 	return parseFloat(n).toFixed(0);
 },
@@ -40,6 +41,14 @@ prependZero : function(c) {
 
 	c = U.decimal(c);
 	return (c < 10) ? ('0' + c) : c;
+=======
+parseFloat : function(n){
+	return parseFloat(n,10);
+},
+
+prependZero : function(c) {
+	return (c < 10) ? ('0' + U.parseFloat(c)) : U.parseFloat(c);
+>>>>>>> c0cf11f0075026f183e4273481342f26ca83b993
 },
 
 formatTime : function(t){
