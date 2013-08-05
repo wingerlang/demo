@@ -57,4 +57,3 @@ formatTime : function(t){
 }
 
 }
-console.log(U.toString());
