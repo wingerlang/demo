@@ -24,11 +24,21 @@ toString : function() {
 	return this.info.shortName + ' (' + this.info.longName + ') v' + this.info.version + ' by ' + this.info.author + ' initiated.';
 },
 
-prependZero : function(c) {
-	c = c.replace(/0+/, '');
-	console.log("c " + c);
-	
+decimal : function(n) {
+	return parseFloat(n).toFixed(0);
+},
 
+prependZero : function(c) {
+ /*
+	0 		- 00
+	00000 - 00
+	0100	- 100
+	09		- 09
+	009 	- 009
+	0900  - 900
+ */
+
+	c = U.decimal(c);
 	return (c < 10) ? ('0' + c) : c;
 },
 
