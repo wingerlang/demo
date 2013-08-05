@@ -30,25 +30,7 @@ decimal : function(n) {
 },
 
 prependZero : function(c) {
- /*
-	0 		- 00
-	00000 - 00
-	0100	- 100
-	09		- 09
-	009 	- 009
-	0900  - 900
- */
-
-	c = U.decimal(c);
-	return (c < 10) ? ('0' + c) : c;
-=======
-parseFloat : function(n){
-	return parseFloat(n,10);
-},
-
-prependZero : function(c) {
 	return (c < 10) ? ('0' + U.parseFloat(c)) : U.parseFloat(c);
->>>>>>> c0cf11f0075026f183e4273481342f26ca83b993
 },
 
 formatTime : function(t){
