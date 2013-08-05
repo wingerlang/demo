@@ -11,6 +11,7 @@
 	<p>Elements: <span id="elements"></span></p>
 	<p>Sorted: <span id="sorted"></span></p>
 	<p>Times shuffled: <span id="timesShuffled"></span></p>
+	<p>Total time: <span id="timeTaken"></span></p>
 
 	<button id="generate">Generate Data</button>
 	<button id="go">Go! (sort)</button>
@@ -24,6 +25,7 @@
 			sortedHtml = $('sorted'),
 			go = $('go'),
 			generateAndGo = $('generateAndGo'),
+			timeTakenHtml = $('timeTaken'),
 			elements;
 
 		function $(id) {
@@ -65,11 +67,14 @@
 		function bogos(data) {
 			var counter = 0;
 
+			var timeTaken = Date.now();
+
 			while(!isSorted(data)) {
 				data = shuffle(data);
 				counter++;
 			}
 			timesShuffledHtml.innerHTML  = counter;
+			timeTakenHtml.innerHTML = (Date.now() - timeTaken) / 1000;
 			
 			return data;
 		}
