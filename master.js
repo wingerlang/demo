@@ -24,7 +24,6 @@ toString : function() {
 	return this.info.shortName + ' (' + this.info.longName + ') v' + this.info.version + ' by ' + this.info.author + ' initiated.';
 },
 
-<<<<<<< HEAD
 decimal : function(n) {
 	return parseFloat(n).toFixed(0);
 },
