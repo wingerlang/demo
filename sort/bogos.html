@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Bogos sorting</title>
 </head>
 <body>
 <h2>Bogos sort</h2>
@@ -9,40 +9,79 @@
 	Number of elements: <input id="numberOfElements" type="number" min="1" max="20" value="5"> <br>
 	Algorithm: <strong>Bogos<strong>
 	<p>Elements: <span id="elements"></span></p>
+	<p>Sorted: <span id="sorted"></span></p>
+	<p>Times shuffled: <span id="timesShuffled"></span></p>
 
 	<button id="generate">Generate Data</button>
 	<button id="go">Go! (sort)</button>
 	
-
 	<script>
-	var elementsHtml = $('elements'),
-		generateHtml = $('generate'),
-		numberOfElementsHtml = $('numberOfElements'),
-		elements;
+		var elementsHtml = $('elements'),
+			generateHtml = $('generate'),
+			numberOfElementsHtml = $('numberOfElements'),
+			timesShuffledHtml = $('timesShuffled'),
+			sortedHtml = $('sorted'),
+			go = $('go'),
+			elements;
 
-	function $(id) {
-		return document.getElementById(id);
-	}
-
-
-	generateHtml.addEventListener('click', function(){
-		var numberOfElements = parseInt(numberOfElementsHtml.value, 10);
-		elements = generate(numberOfElements);
-
-		elementsHtml.innerHTML = elements;
-
-	});
-	
-	function generate(n) {
-		var arr = Array(n);
-
-		for (var i = arr.length - 1; i >= 0; i--) {
-			arr[i] = Math.floor(Math.random()*100);
+		function $(id) {
+			return document.getElementById(id);
 		}
-		return arr;
-	}
 
-	
+		function generate(n) {
+			var arr = Array(n);
+
+			for (var i = arr.length - 1; i >= 0; i--) {
+				arr[i] = Math.floor(Math.random()*100);
+			}
+			return arr;
+		}
+
+		function isSorted(data) {
+			for (var i = data.length - 1; i >= 1; i--) {
+				if(data[i] < data[i - 1]) {
+					return false;
+				}
+			};
+			return true;
+		}
+
+		function shuffle(array) {
+			var counter = array.length, temp, index;
+
+			while (counter > 0) {
+				index = Math.floor(Math.random() * counter);
+				counter--;
+				temp = array[counter];
+				array[counter] = array[index];
+				array[index] = temp;
+			}
+
+			return array;
+		}
+
+		function bogos(data) {
+			var counter = 0;
+
+			while(!isSorted(data)) {
+				data = shuffle(data);
+				counter++;
+			}
+			timesShuffledHtml.innerHTML  = counter;
+			
+			return data;
+		}
+
+		generateHtml.addEventListener('click', function(){
+			var numberOfElements = parseInt(numberOfElementsHtml.value, 10);
+			elements = generate(numberOfElements);
+			elementsHtml.innerHTML = elements;
+		});
+
+		go.addEventListener('click', function() {
+			sortedHtml.innerHTML = bogos(elements);
+		})
+
 	</script>
 </body>
 </html>
