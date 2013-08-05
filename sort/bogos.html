@@ -14,6 +14,7 @@
 
 	<button id="generate">Generate Data</button>
 	<button id="go">Go! (sort)</button>
+	<button id="generateAndGo">Generate & Go</button>
 	
 	<script>
 		var elementsHtml = $('elements'),
@@ -22,6 +23,7 @@
 			timesShuffledHtml = $('timesShuffled'),
 			sortedHtml = $('sorted'),
 			go = $('go'),
+			generateAndGo = $('generateAndGo'),
 			elements;
 
 		function $(id) {
@@ -80,6 +82,11 @@
 
 		go.addEventListener('click', function() {
 			sortedHtml.innerHTML = bogos(elements);
+		})
+
+		generateAndGo.addEventListener('click', function(){
+			generateHtml.click();
+			go.click();
 		})
 
 	</script>
