@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>CRYPTO</title>
+	<style>
+		* {
+			font-family: consolas;
+			letter-spacing: 0.1em;
+		}
+		.done {color: red; }
+		.right {float:right; }
+		.left { float: left;}
+		.box { 
+			width: 200px; 
+			float:left;
+			margin-left:25px;
+		}
+		.mr {margin-right: 100px;}
+		#plaintext {word-wrap: break-word;}
+		.clicked { color: red;}
+	</style>
+</head>
+<body>
+	<h2 id="kryptogram"></h2> 
+	<h2 id="plaintext"></h2>
+	<div class="box mr">
+		<textarea id="rules" cols="30" rows="10"></textarea>
+		<h3 id="taken"></h3>
+		<h3 id="remaining"></h3>
+	</div>
+	
+	<div class="box">
+		<h3>Monogram</h3>
+		<ul id="monogram"></ul>
+	</div>
+	<div class="box">
+		<h3>Bigram</h3>
+		<ul id="bigram"></ul>
+	</div>
+
+	<div class="box">
+		<h3>Trigram</h3>
+		<ul id="trigram"></ul>
+	</div>	
+
+	<div class="box">
+		<h3>Krypogram analysis</h3>
+		<ul id="kryptogram_mono"></ul>
+	</div>	<div class="box">
+		<h3>Krypogram analysis</h3>
+		<ul id="kryptogram_bi"></ul>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://underscorejs.org/underscore.js"></script>
+	<script src="crypt.js"></script>
+</body>
+</html>
