@@ -176,5 +176,5 @@ $('#plaintext').html(kryptogram);
 
 $('#remaining').html( _.difference(alfa.toLowerCase().split(''), taken.toLowerCase().split('')));
 
-document.querySelector('#rules').value = sessionStorage.rules;
+document.querySelector('#rules').value = sessionStorage.rules || "";
 $('#rules').trigger('keyup');
